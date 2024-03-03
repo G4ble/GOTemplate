@@ -1,0 +1,48 @@
+{{ define "title" }}
+Pokémon API
+{{ end }}
+
+{{ define "navbar" }}
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Test App</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" aria-current="page" href="/">User</a>
+                <a class="nav-link" aria-current="page" href="about">About Me</a>
+                <a class="nav-link active" aria-current="page" href="API">API</a>
+            </div>
+        </div>
+    </div>
+</nav>
+{{ end }}
+
+{{ define "content" }}
+
+{{ if . }}
+
+{{ range $i, $Pokemon := . }}
+
+<div class="card text-bg-primary mb-3" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{ $Pokemon.Species.Name }}</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">{{ $Pokemon.EntryNo }}</h6>
+        <p class="card-text"> Index: {{ $i }}. Example description.</p>
+    </div>
+</div>
+----------------------------------------------------------------
+<br /> <br />
+
+{{ end }}
+
+{{ else }}
+
+<p>No Pokémon found.</p>
+
+{{ end }}
+
+{{ end }}

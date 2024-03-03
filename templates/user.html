@@ -1,0 +1,36 @@
+{{ define "title" }}
+User Profiles
+{{ end }}
+
+{{ define "content" }}
+
+{{ if .Users }}
+
+{{ range $i, $user := .Users }}
+
+<div class="card text-bg-primary mb-3" style="width: 18rem;">
+    <div class="card-header">
+        Index: {{ $i }}
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">User: {{ . }}</li>
+        <li class="list-group-item">First Name: {{ .FirstName }}</li>
+    </ul>
+</div>
+----------------------------------------------------------------
+<br /> <br />
+
+{{ end }}
+
+<div class="container">
+    Today is {{ $.Today }}
+</div>
+<br />
+
+{{ else }}
+
+<p>No User found.</p>
+
+{{ end }}
+
+{{ end }}
